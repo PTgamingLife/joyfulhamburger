@@ -401,44 +401,71 @@ function closeQR(e) {
 
 function renderSeating() {
   const s=T[lang].seating;
-  const CW=120,CH=60,OX=360,OY=140,TH=20,WH=60;
+  const CW=148,CH=74,OX=375,OY=148,TH=24,WH=68;
   const iso=(c,r)=>[OX+(c-r)*CW/2,OY+(c+r)*CH/2];
-  const box=(c,r,w,d,h,tc,lc,fc,id,lb)=>{
-    const[ax,ay]=iso(c,r),[bx,by]=iso(c+w,r),[cx,cy]=iso(c+w,r+d),[dx,dy]=iso(c,r+d);
-    const ev=id?`onclick="selectTable(${id})" style="cursor:pointer"`:'';
-    return `<g ${ev}>`+
-      `<polygon points="${ax},${ay} ${dx},${dy} ${dx},${dy+h} ${ax},${ay+h}" fill="${lc}" stroke="white" stroke-width="0.8"/>`+
-      `<polygon points="${dx},${dy} ${cx},${cy} ${cx},${cy+h} ${dx},${dy+h}" fill="${fc}" stroke="white" stroke-width="0.8"/>`+
-      `<polygon points="${ax},${ay} ${bx},${by} ${cx},${cy} ${dx},${dy}" fill="${tc}" stroke="white" stroke-width="1.5"/>`+
-      (lb?`<text x="${(ax+bx+cx+dx)/4}" y="${(ay+by+cy+dy)/4+5}" text-anchor="middle" font-size="11" fill="#444" font-weight="bold" pointer-events="none">${lb}</text>`:'')
-      +'</g>';
+
+  // Draw an isometric box; onclick on each polygon for reliable click
+  const box=(c,r,w,d,h,tc,lc,fc,id)=>{
+    const[ax,ay]=iso(c,r),[bx,by]=iso(c+w,r);
+    const[px,py]=iso(c+w,r+d),[qx,qy]=iso(c,r+d);
+    const ccx=(ax+bx+px+qx)/4, ccy=(ay+by+py+qy)/4;
+    const oc=id?`onclick="selectTable(${id})" style="cursor:pointer"`:'';
+    const sel=selectedTable===id&&id;
+    const badgeFill=sel?'#006080':'#FF006E';
+    return `<g>
+      <polygon ${oc} points="${ax},${ay} ${qx},${qy} ${qx},${qy+h} ${ax},${ay+h}" fill="${lc}" stroke="white" stroke-width="0.8"/>
+      <polygon ${oc} points="${qx},${qy} ${px},${py} ${px},${py+h} ${qx},${qy+h}" fill="${fc}" stroke="white" stroke-width="0.8"/>
+      <polygon ${oc} points="${ax},${ay} ${bx},${by} ${px},${py} ${qx},${qy}" fill="${tc}" stroke="${sel?'#00F0FF':'#ddd'}" stroke-width="${sel?3:1.5}"/>
+      ${id?`<ellipse cx="${ccx}" cy="${ccy}" rx="16" ry="10" fill="${badgeFill}" pointer-events="none"/>
+      <text x="${ccx}" y="${ccy+4}" text-anchor="middle" font-size="13" fill="white" font-weight="900" font-family="sans-serif" pointer-events="none">${id}</text>`:''}
+    </g>`;
   };
-  const ch=(pc,pr)=>{const[x,y]=iso(pc,pr);return`<ellipse cx="${x}" cy="${y}" rx="9" ry="5" fill="#BF7040" stroke="white" stroke-width="1"/>`;};
-  const ch4=(c,r)=>ch(c+.5,r-.2)+ch(c+.5,r+1.2)+ch(c-.2,r+.5)+ch(c+1.2,r+.5);
+
+  // Chairs as small ellipses
+  const ch=(pc,pr)=>{const[x,y]=iso(pc,pr);return`<ellipse cx="${x}" cy="${y}" rx="10" ry="6" fill="#BF7040" stroke="white" stroke-width="1.2"/>`;};
+  const ch4=(c,r)=>ch(c+.5,r-.22)+ch(c+.5,r+1.22)+ch(c-.22,r+.5)+ch(c+1.22,r+.5);
+
   const TBLS=[[1,0,0],[2,1,0],[3,2,0],[4,3,0],[5,0,1],[6,2,1],[7,3,1],[8,0,2],[9,2,2],[10,3,2]];
   const sel=selectedTable;
   const[f0x,f0y]=iso(0,0),[f1x,f1y]=iso(4,0),[f2x,f2y]=iso(4,3),[f3x,f3y]=iso(0,3);
   const[w0x,w0y]=iso(0,0),[w1x,w1y]=iso(4,0);
-  const bwall=`<polygon points="${w0x},${w0y} ${w1x},${w1y} ${w1x},${w1y-WH} ${w0x},${w0y-WH}" fill="#EAF8FA" stroke="#00F0FF" stroke-width="2"/>`;
+
+  // Back wall with windows
+  const bwall=`<polygon points="${w0x},${w0y} ${w1x},${w1y} ${w1x},${w1y-WH} ${w0x},${w0y-WH}" fill="#E6F7FA" stroke="#00F0FF" stroke-width="2.5"/>`;
   const ww=(w1x-w0x)/3;
-  const wins=[0,1,2].map(i=>`<rect x="${w0x+i*ww+5}" y="${w0y-WH+10}" width="${ww-10}" height="${WH-20}" fill="#A8E8F8" stroke="#00F0FF" stroke-width="1.5" rx="3"/>`).join('');
-  const floor=`<polygon points="${f0x},${f0y} ${f1x},${f1y} ${f2x},${f2y} ${f3x},${f3y}" fill="#F2F2EE" stroke="#ddd"/>`;
-  const ctr=box(1,1,1,2,TH+14,'#D4AA7A','#B88A4E','#C99555',0,'');
-  const objs=[...TBLS.map(([id,c,r])=>({id,c,r,z:c+r})),{id:0,c:1,r:1,z:3,isCtr:true}];
-  objs.sort((a,b)=>a.z-b.z||(b.c-a.c));
-  const tSVG=objs.map(o=>o.isCtr?ctr:(ch4(o.c,o.r)+box(o.c,o.r,1,1,TH,sel===o.id?'#00F0FF':'#fff',sel===o.id?'#00BFD8':'#FFB3D1',sel===o.id?'#009AB0':'#FF80B0',o.id,`${o.id}`))).join('');
-  const[drx,dry]=iso(4,2.8);
-  const[crx,cry]=iso(1.5,2.2);
+  const wins=[0,1,2].map(i=>`<rect x="${w0x+i*ww+6}" y="${w0y-WH+10}" width="${ww-12}" height="${WH-20}" fill="#8DE8FF" stroke="#00F0FF" stroke-width="2" rx="4" opacity="0.85"/>`).join('');
+  const winLbl=`<text x="${(w0x+w1x)/2}" y="${w0y-WH/2+4}" text-anchor="middle" font-size="11" fill="#0090AA" font-family="sans-serif" font-weight="bold" pointer-events="none">🪟 WINDOW</text>`;
+
+  // Floor
+  const floor=`<polygon points="${f0x},${f0y} ${f1x},${f1y} ${f2x},${f2y} ${f3x},${f3y}" fill="#F0EFEA" stroke="#ccc" stroke-width="1"/>`;
+
+  // Counter (wooden box, non-clickable)
+  const ctr=box(1,1,1,2,TH+16,'#D8B27C','#B8864A','#CA9A58',0);
+
+  // Sort objects by z-order (painter's algorithm)
+  const objs=[...TBLS.map(([id,c,r])=>({id,c,r,z:c+r})),{id:0,c:1,r:1,z:3.2,isCtr:true}];
+  objs.sort((a,b)=>a.z-b.z);
+  const tSVG=objs.map(o=>{
+    if(o.isCtr)return ctr;
+    const isSel=sel===o.id;
+    return ch4(o.c,o.r)+box(o.c,o.r,1,1,TH,isSel?'#BDFAFF':'#FFFFFF',isSel?'#00BFD8':'#FFB3D1',isSel?'#009AB0':'#FF80B0',o.id);
+  }).join('');
+
+  // Labels
+  const[drx,dry]=iso(4,2.85);
+  const[crx,cry]=iso(1.5,2.0);
+  const doorLbl=`<text x="${drx}" y="${dry+10}" font-size="11" fill="#999" font-family="sans-serif" text-anchor="middle" font-weight="bold">🚪 DOOR</text>`;
+  const ctrLbl=`<text x="${crx}" y="${cry+4}" font-size="10" fill="#8B6030" font-family="sans-serif" text-anchor="middle" font-weight="bold">COUNTER</text>`;
+
   const info=sel
     ?`<div class="seat-info"><span class="seat-num">${s.table} ${sel}</span><span class="seat-seats">· 4 ${s.seats}</span><button class="submit-btn seat-book" onclick="go('reserve')">${s.book}</button></div>`
-    :`<p class="seat-hint">${s.hint}</p>`;
+    :`<p class="seat-hint">👆 ${s.hint}</p>`;
+
   return `${navbar()}${geo()}<div class="page-body">
     <div class="sec-head"><h2>${s.h}</h2><p>${s.p}</p></div>
     ${info}
-    <div class="seat-wrap"><svg viewBox="0 0 720 420" class="seat-svg">
-      ${bwall}${wins}${floor}${tSVG}
-      <text x="${drx}" y="${dry+8}" font-size="10" fill="#bbb" font-family="sans-serif" text-anchor="middle">▼ DOOR</text>
-      <text x="${crx}" y="${cry}" font-size="9" fill="#a07040" font-family="sans-serif" text-anchor="middle" font-weight="bold">COUNTER</text>
+    <div class="seat-wrap"><svg viewBox="0 0 720 440" class="seat-svg">
+      ${bwall}${wins}${winLbl}${floor}${tSVG}${doorLbl}${ctrLbl}
     </svg>
     <div class="seat-legend"><span class="sl-avail">${s.available}</span><span class="sl-sel">${s.selected}</span></div>
     </div></div>`;

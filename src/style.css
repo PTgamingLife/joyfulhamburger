@@ -283,9 +283,9 @@ nav {
 
 /* ── SEATING ── */
 .seat-wrap { padding: 0 1.5rem 3rem; }
-.seat-svg { width: 100%; max-width: 720px; display: block; margin: 0 auto; }
-.iso-table polygon { transition: opacity 0.15s; }
-.iso-table:hover polygon { opacity: 0.82; }
+.seat-svg { width: 100%; max-width: 760px; display: block; margin: 0 auto; }
+.seat-svg polygon[onclick] { transition: opacity 0.12s, filter 0.12s; }
+.seat-svg polygon[onclick]:hover { opacity: 0.78; filter: brightness(0.92); }
 .seat-info {
   display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap;
   padding: 0.8rem 2rem; background: #fff4fa; border-left: 5px solid var(--pink);
