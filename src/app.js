@@ -6,9 +6,9 @@ const T = {
     home: { t1:'揪福', t2:'漢堡', sub:'JOYFUL BURGER · TAIWAN', choose:'請選擇語言' },
     langs: ['中文','English','日本語','한국어'],
     menu: {
-      h:'精選菜單', p:'每顆漢堡都是揪福對美食的熱情與堅持。',
-      fq:'揪福漢堡有哪些招牌菜？',
-      fa:'招牌菜：揪福雙層牛肉堡 NT$180、辣雞腿堡 NT$160、培根起司堡 NT$170、蘑菇瑞士起司堡 NT$175、黃金薯條 NT$60。'
+      h:'精選菜單', p:'義大利麵、漢堡、炸物、飲品，每道料理都是揪福對美食的熱情與堅持。',
+      fq:'揪福的招牌菜有哪些？',
+      fa:'招牌推薦：★ 粉紅鮮蝦干貝義大利麵 $350、★ 茄汁菌菇雞肉義大利麵 $240、★ 蛋汁奶油培根義大利麵 $240、★ 招牌花生牛肉起司堡 $280起、★ 焦糖炸雞堡 $260、★ 熔岩起司脆薯 $140。每人低消 $200，不收服務費。'
     },
     reserve: {
       h:'線上訂位', p:'如何在揪福漢堡線上訂位？填寫表單，24小時內確認。',
@@ -47,9 +47,9 @@ const T = {
     home: { t1:'Joyful', t2:'Burger', sub:'揪福漢堡 · TAIPEI, TAIWAN', choose:'Select Language' },
     langs: ['中文','English','日本語','한국어'],
     menu: {
-      h:'Our Menu', p:'Every burger at Joyful is crafted with passion and the finest ingredients.',
-      fq:'What are the signature dishes at Joyful Burger?',
-      fa:'Signature items: Double Beef Burger NT$180, Spicy Chicken Burger NT$160, Bacon Cheeseburger NT$170, Mushroom Swiss Burger NT$175, Golden Fries NT$60.'
+      h:'Our Menu', p:'Pasta, burgers, fried bites & drinks — crafted with passion at every table.',
+      fq:"What are Joyful's signature dishes?",
+      fa:'Recommended: ★ Pink Prawn & Scallop Pasta $350, ★ Tomato Mushroom Chicken Pasta $240, ★ Carbonara $240, ★ Joyful Peanut Beef Burger from $280, ★ Caramel Crispy Chicken Burger $260, ★ Molten Cheese Fries $140. Min. $200/person, no service charge.'
     },
     reserve: {
       h:'Reservation', p:'How to book a table at Joyful Burger? Fill in the form — confirmed within 24 hours.',
@@ -88,9 +88,9 @@ const T = {
     home: { t1:'ジョイフル', t2:'バーガー', sub:'揪福漢堡 · 台北, 台湾', choose:'言語を選択' },
     langs: ['中文','English','日本語','한국어'],
     menu: {
-      h:'メニュー', p:'情熱とこだわりで作り上げた本格バーガーをお楽しみください。',
-      fq:'ジョイフルバーガーの看板メニューは何ですか？',
-      fa:'看板メニュー：ダブルビーフバーガー NT$180、スパイシーチキンバーガー NT$160、ベーコンチーズバーガー NT$170、マッシュルームスイスバーガー NT$175、ゴールデンフライ NT$60。'
+      h:'メニュー', p:'パスタ・バーガー・揚げ物・ドリンク、情熱を込めた一皿一皿。',
+      fq:'ジョイフルの看板メニューは何ですか？',
+      fa:'おすすめ：★ 海老ホタテのピンクソースパスタ $350、★ トマトきのこ鶏パスタ $240、★ カルボナーラ $240、★ 招牌ピーナッツビーフバーガー $280〜、★ キャラメルチキンバーガー $260、★ チーズフォンデュフライ $140。'
     },
     reserve: {
       h:'ご予約', p:'ジョイフルバーガーの予約方法は？フォームを送信後、24時間以内にご確認します。',
@@ -129,9 +129,9 @@ const T = {
     home: { t1:'조이풀', t2:'버거', sub:'揪福漢堡 · 타이베이, 대만', choose:'언어를 선택하세요' },
     langs: ['中文','English','日本語','한국어'],
     menu: {
-      h:'메뉴', p:'열정과 정성으로 만든 조이풀 버거를 즐겨보세요.',
-      fq:'조이풀 버거의 시그니처 메뉴는 무엇인가요?',
-      fa:'시그니처 메뉴: 더블 비프 버거 NT$180, 스파이시 치킨 버거 NT$160, 베이컨 치즈버거 NT$170, 머쉬룸 스위스 버거 NT$175, 황금 감자튀김 NT$60.'
+      h:'메뉴', p:'파스타, 버거, 튀김, 음료 — 열정으로 만든 모든 메뉴.',
+      fq:'조이풀의 시그니처 메뉴는 무엇인가요?',
+      fa:'추천 메뉴: ★ 핑크소스 새우 가리비 파스타 $350, ★ 토마토 버섯 치킨 파스타 $240, ★ 카르보나라 $240, ★ 땅콩 비프 치즈버거 $280~, ★ 캐러멜 치킨 버거 $260, ★ 녹은 치즈 감자튀김 $140. 1인 최소 $200, 서비스료 없음.'
     },
     reserve: {
       h:'예약', p:'조이풀 버거 예약 방법은? 양식을 제출하면 24시간 내 확인해 드립니다.',
@@ -168,14 +168,83 @@ const T = {
 };
 
 const MENU = [
-  { cat:{zh:'招牌',en:'Signature',ja:'看板',ko:'시그니처'}, name:{zh:'揪福雙層牛肉堡',en:'Double Beef Burger',ja:'ダブルビーフバーガー',ko:'더블 비프 버거'}, desc:{zh:'雙層嫩煎牛肉排、特製醬汁、新鮮生菜',en:'Double smash patty, house sauce, fresh lettuce',ja:'ダブルスマッシュパティ、特製ソース',ko:'더블 스매시 패티, 하우스 소스'}, price:'NT$180' },
-  { cat:{zh:'雞肉',en:'Chicken',ja:'チキン',ko:'치킨'}, name:{zh:'辣雞腿堡',en:'Spicy Chicken Burger',ja:'スパイシーチキンバーガー',ko:'스파이시 치킨 버거'}, desc:{zh:'炸嫩雞腿、辣醬、脆高麗菜絲',en:'Crispy chicken thigh, spicy sauce, slaw',ja:'クリスピーチキン、スパイシーソース',ko:'크리스피 치킨 허벅지, 매운 소스'}, price:'NT$160' },
-  { cat:{zh:'招牌',en:'Signature',ja:'看板',ko:'시그니처'}, name:{zh:'培根起司堡',en:'Bacon Cheeseburger',ja:'ベーコンチーズバーガー',ko:'베이컨 치즈버거'}, desc:{zh:'厚切培根、雙層起司、番茄、洋蔥',en:'Thick-cut bacon, double cheese, tomato',ja:'厚切りベーコン、ダブルチーズ',ko:'두툼한 베이컨, 더블 치즈'}, price:'NT$170' },
-  { cat:{zh:'招牌',en:'Signature',ja:'看板',ko:'시그니처'}, name:{zh:'蘑菇瑞士起司堡',en:'Mushroom Swiss Burger',ja:'マッシュルームスイスバーガー',ko:'머쉬룸 스위스 버거'}, desc:{zh:'炒蘑菇、瑞士起司、芥末醬',en:'Sautéed mushrooms, Swiss cheese, mustard',ja:'ソテーマッシュルーム、スイスチーズ',ko:'버섯 볶음, 스위스 치즈'}, price:'NT$175' },
-  { cat:{zh:'素食',en:'Veggie',ja:'ベジ',ko:'채식'}, name:{zh:'蔬食酪梨堡',en:'Avocado Veggie Burger',ja:'アボカドベジバーガー',ko:'아보카도 채식 버거'}, desc:{zh:'植物肉排、新鮮酪梨、芝麻葉',en:'Plant patty, fresh avocado, arugula',ja:'植物性パティ、フレッシュアボカド',ko:'식물성 패티, 신선한 아보카도'}, price:'NT$165' },
-  { cat:{zh:'配餐',en:'Sides',ja:'サイド',ko:'사이드'}, name:{zh:'黃金薯條',en:'Golden Fries',ja:'ゴールデンフライ',ko:'황금 감자튀김'}, desc:{zh:'酥脆黃金薯條，附招牌沾醬',en:'Crispy golden fries with house dipping sauce',ja:'カリカリゴールデンフライ',ko:'바삭한 황금 감자튀김'}, price:'NT$60' },
-  { cat:{zh:'配餐',en:'Sides',ja:'サイド',ko:'사이드'}, name:{zh:'洋蔥圈',en:'Onion Rings',ja:'オニオンリング',ko:'어니언 링'}, desc:{zh:'酥炸洋蔥圈，香脆不油膩',en:'Beer-battered crispy onion rings',ja:'ビール衣のオニオンリング',ko:'맥주 반죽 바삭한 어니언 링'}, price:'NT$70' },
-  { cat:{zh:'飲品',en:'Drinks',ja:'ドリンク',ko:'음료'}, name:{zh:'招牌奶昔',en:'Signature Milkshake',ja:'シグネチャーミルクシェイク',ko:'시그니처 밀크쉐이크'}, desc:{zh:'濃郁香草、草莓、巧克力三種口味',en:'Thick vanilla, strawberry or chocolate shake',ja:'バニラ、ストロベリー、チョコの3種類',ko:'바닐라, 딸기, 초콜릿 3가지 맛'}, price:'NT$120' }
+  // Pasta — Pink Sauce
+  {cat:{zh:'粉紅醬麵',en:'Pink Sauce Pasta'},name:{zh:'粉紅肉醬洋菇義大利麵',en:'Pink Meat & Mushroom Pasta'},desc:{zh:'肉醬、洋菇、粉紅醬',en:'Meat sauce, mushroom, pink cream'},price:'$240'},
+  {cat:{zh:'粉紅醬麵',en:'Pink Sauce Pasta'},name:{zh:'粉紅菌菇雞肉義大利麵',en:'Pink Mushroom Chicken Pasta'},desc:{zh:'嫩雞、什菇、粉紅醬',en:'Chicken, mushrooms, pink sauce'},price:'$280'},
+  {cat:{zh:'粉紅醬麵',en:'Pink Sauce Pasta'},name:{zh:'粉紅鮮蝦干貝義大利麵',en:'Pink Prawn & Scallop Pasta'},desc:{zh:'新鮮蝦仁、干貝、粉紅醬',en:'Fresh prawns, scallops, pink sauce'},price:'$350',tag:'★'},
+  // Pasta — Tomato Sauce
+  {cat:{zh:'紅醬麵',en:'Tomato Pasta'},name:{zh:'茄汁肉醬義大利麵',en:'Tomato Meat Sauce Pasta'},desc:{zh:'番茄肉醬',en:'Tomato meat sauce'},price:'$220'},
+  {cat:{zh:'紅醬麵',en:'Tomato Pasta'},name:{zh:'茄汁菌菇雞肉義大利麵',en:'Tomato Mushroom Chicken Pasta'},desc:{zh:'嫩雞、什菇、番茄醬',en:'Chicken, mushrooms, tomato'},price:'$240',tag:'★'},
+  {cat:{zh:'紅醬麵',en:'Tomato Pasta'},name:{zh:'番茄海鮮義大利麵',en:'Tomato Seafood Pasta'},desc:{zh:'什錦海鮮、番茄醬',en:'Mixed seafood, tomato sauce'},price:'$280'},
+  // Pasta — Cream Sauce
+  {cat:{zh:'白醬麵',en:'Cream Pasta'},name:{zh:'蛋汁奶油培根義大利麵',en:'Carbonara'},desc:{zh:'培根、蛋汁、奶油醬',en:'Bacon, egg, cream sauce'},price:'$240',tag:'★'},
+  {cat:{zh:'白醬麵',en:'Cream Pasta'},name:{zh:'奶油菌菇雞肉義大利麵',en:'Creamy Mushroom Chicken Pasta'},desc:{zh:'嫩雞、什菇、奶油醬',en:'Chicken, mushrooms, cream'},price:'$260'},
+  {cat:{zh:'白醬麵',en:'Cream Pasta'},name:{zh:'奶油海鮮義大利麵',en:'Creamy Seafood Pasta'},desc:{zh:'什錦海鮮、奶油醬',en:'Mixed seafood, cream'},price:'$280'},
+  {cat:{zh:'白醬麵',en:'Cream Pasta'},name:{zh:'奶油鮮蔬義大利麵',en:'Creamy Veggie Pasta'},desc:{zh:'新鮮時蔬、奶油醬',en:'Fresh vegetables, cream'},price:'$220'},
+  // Pasta — Spicy Cream
+  {cat:{zh:'辣奶油麵',en:'Spicy Cream Pasta'},name:{zh:'辣奶油菌菇雞肉義大利麵',en:'Spicy Creamy Mushroom Chicken Pasta'},desc:{zh:'嫩雞、什菇、辣奶油醬',en:'Chicken, mushrooms, spicy cream'},price:'$260',tag:'🌶️'},
+  {cat:{zh:'辣奶油麵',en:'Spicy Cream Pasta'},name:{zh:'辣奶油海鮮義大利麵',en:'Spicy Creamy Seafood Pasta'},desc:{zh:'什錦海鮮、辣奶油醬',en:'Mixed seafood, spicy cream'},price:'$280',tag:'🌶️'},
+  // Pasta — Pesto
+  {cat:{zh:'青醬麵',en:'Pesto Pasta'},name:{zh:'青醬培根義大利麵',en:'Pesto Bacon Pasta'},desc:{zh:'培根、青醬',en:'Bacon, pesto sauce'},price:'$240',tag:'★'},
+  {cat:{zh:'青醬麵',en:'Pesto Pasta'},name:{zh:'青醬雞肉義大利麵',en:'Pesto Chicken Pasta'},desc:{zh:'嫩雞、青醬',en:'Chicken, pesto'},price:'$260'},
+  {cat:{zh:'青醬麵',en:'Pesto Pasta'},name:{zh:'青醬海鮮義大利麵',en:'Pesto Seafood Pasta'},desc:{zh:'什錦海鮮、青醬',en:'Mixed seafood, pesto'},price:'$280'},
+  // Pasta — Orzo
+  {cat:{zh:'米型麵',en:'Orzo'},name:{zh:'粉紅菌菇雞肉米型麵',en:'Pink Mushroom Chicken Orzo'},desc:{zh:'嫩雞、什菇、粉紅醬',en:'Chicken, mushrooms, pink sauce'},price:'$260',tag:'★'},
+  {cat:{zh:'米型麵',en:'Orzo'},name:{zh:'松露野菇米型麵',en:'Truffle Wild Mushroom Orzo'},desc:{zh:'松露油、野菇',en:'Truffle oil, wild mushrooms'},price:'$280'},
+  {cat:{zh:'米型麵',en:'Orzo'},name:{zh:'青醬培根米型麵',en:'Pesto Bacon Orzo'},desc:{zh:'培根、青醬',en:'Bacon, pesto'},price:'$260'},
+  {cat:{zh:'米型麵',en:'Orzo'},name:{zh:'義式巴薩米可雞柳米型麵',en:'Balsamic Chicken Orzo'},desc:{zh:'雞柳、巴薩米可醋',en:'Chicken strips, balsamic'},price:'$300'},
+  // Pasta — Stir-Fried
+  {cat:{zh:'清炒麵',en:'Stir-Fried Pasta'},name:{zh:'清炒鮮蔬義大利麵',en:'Stir-Fried Veggie Pasta'},desc:{zh:'新鮮時蔬',en:'Fresh seasonal vegetables'},price:'$220'},
+  {cat:{zh:'清炒麵',en:'Stir-Fried Pasta'},name:{zh:'蒜頭小魚乾辣椒麵',en:'Garlic Anchovy Chili Pasta'},desc:{zh:'蒜香、小魚乾、辣椒',en:'Garlic, anchovies, chili'},price:'$260',tag:'🌶️'},
+  {cat:{zh:'清炒麵',en:'Stir-Fried Pasta'},name:{zh:'蒜香梅花豬義大利麵',en:'Garlic Pork Pasta'},desc:{zh:'梅花豬、蒜香',en:'Pork collar, garlic'},price:'$260',tag:'🌶️'},
+  {cat:{zh:'清炒麵',en:'Stir-Fried Pasta'},name:{zh:'白酒蛤蜊義大利麵',en:'White Wine Clam Pasta'},desc:{zh:'新鮮蛤蜊、白酒',en:'Fresh clams, white wine'},price:'$260',tag:'★'},
+  // Burger
+  {cat:{zh:'漢堡',en:'Burger'},name:{zh:'招牌Joyful花生牛肉起司堡（附脆薯）',en:'Joyful Peanut Beef Cheeseburger (w/ Fries)'},desc:{zh:'花生醬、牛肉排、起司 · 單層$280 / 雙層$320',en:'Peanut butter, beef patty, cheese · Single $280 / Double $320'},price:'$280 / $320',tag:'★'},
+  {cat:{zh:'漢堡',en:'Burger'},name:{zh:'焦糖海鹽熔岩炸雞堡（附脆薯）',en:'Caramel Sea Salt Crispy Chicken Burger (w/ Fries)'},desc:{zh:'炸雞腿、焦糖海鹽、熔岩起司',en:'Crispy chicken, caramel sea salt, molten cheese'},price:'$260',tag:'★'},
+  {cat:{zh:'漢堡',en:'Burger'},name:{zh:'經典肉醬牛肉起司堡（附脆薯）',en:'Classic Meat Sauce Beef Cheeseburger (w/ Fries)'},desc:{zh:'肉醬、牛肉排、起司',en:'Meat sauce, beef patty, cheese'},price:'$260'},
+  {cat:{zh:'漢堡',en:'Burger'},name:{zh:'罪純粹牛肉起司堡（附脆薯）',en:'Pure Beef Cheeseburger (w/ Fries)'},desc:{zh:'純牛肉排、雙層起司',en:'Pure beef patty, double cheese'},price:'$260'},
+  {cat:{zh:'漢堡',en:'Burger'},name:{zh:'傲椒薯餅青醬炒菇堡 素（附脆薯）',en:'Veggie Hashbrown Pesto Mushroom Burger (w/ Fries)'},desc:{zh:'素食 · 薯餅、青醬、炒菇',en:'Vegan · Hashbrown, pesto, mushrooms'},price:'$220'},
+  {cat:{zh:'漢堡',en:'Burger'},name:{zh:'墨西哥辣椒蕈菇牛肉起司堡（附脆薯）',en:'Jalapeño Mushroom Beef Burger (w/ Fries)'},desc:{zh:'墨西哥辣椒、蕈菇、牛肉排',en:'Jalapeño, mushrooms, beef patty'},price:'$300',tag:'🌶️'},
+  {cat:{zh:'漢堡',en:'Burger'},name:{zh:'塔塔巧滋蟹肉魚排堡（附脆薯）',en:'Tartar Crab Fish Burger (w/ Fries)'},desc:{zh:'魚排、蟹肉、塔塔醬',en:'Fish fillet, crab meat, tartar sauce'},price:'$240'},
+  {cat:{zh:'漢堡加點',en:'Add-On'},name:{zh:'加美式炒蛋',en:'Add Scrambled Egg'},desc:{zh:'搭配任意漢堡加購',en:'Add to any burger'},price:'+$20'},
+  // Combo
+  {cat:{zh:'升級套餐',en:'Combo'},name:{zh:'A 套餐：濃湯 ＋ 飲品',en:'Combo A: Soup + Drink'},desc:{zh:'加購濃湯與飲品 ($80值)',en:'Add soup and drink ($80 value)'},price:'+$89'},
+  {cat:{zh:'升級套餐',en:'Combo'},name:{zh:'B 套餐：炸物 ＋ 飲品',en:'Combo B: Fried Side + Drink'},desc:{zh:'脆薯/薯球/雞塊三選一 ＋ 飲品',en:'Fries / Potato balls / Nuggets + Drink'},price:'+$129'},
+  {cat:{zh:'升級套餐',en:'Combo'},name:{zh:'C 套餐：洋蔥圈或雞柳 ＋ 湯 ＋ 飲品',en:'Combo C: Onion Rings or Chicken Strips + Soup + Drink'},desc:{zh:'洋蔥圈/雞柳條二選一 ＋ 濃湯 ＋ 飲品',en:'Onion rings / chicken strips + soup + drink'},price:'+$169'},
+  // Fried & Soup
+  {cat:{zh:'炸物',en:'Fried'},name:{zh:'黃金脆薯',en:'Golden Fries'},desc:{zh:'酥脆黃金薯條',en:'Crispy golden fries'},price:'$120'},
+  {cat:{zh:'炸物',en:'Fried'},name:{zh:'美式炸薯球',en:'Potato Balls'},desc:{zh:'外酥內軟薯球',en:'Crispy outside, soft inside'},price:'$120'},
+  {cat:{zh:'炸物',en:'Fried'},name:{zh:'美式雞塊',en:'Chicken Nuggets'},desc:{zh:'外脆內嫩雞塊',en:'Crispy chicken nuggets'},price:'$120'},
+  {cat:{zh:'炸物',en:'Fried'},name:{zh:'熔岩起司脆薯',en:'Molten Cheese Fries'},desc:{zh:'起司熔岩淋醬脆薯',en:'Fries with molten cheese sauce'},price:'$140',tag:'★'},
+  {cat:{zh:'炸物',en:'Fried'},name:{zh:'松露薯條',en:'Truffle Fries'},desc:{zh:'松露油香薯條',en:'Truffle oil fries'},price:'$160'},
+  {cat:{zh:'炸物',en:'Fried'},name:{zh:'經典肉醬起司脆薯',en:'Meat Sauce Cheese Fries'},desc:{zh:'肉醬、起司、脆薯',en:'Meat sauce, cheese, fries'},price:'$180'},
+  {cat:{zh:'炸物',en:'Fried'},name:{zh:'經典洋蔥圈',en:'Classic Onion Rings'},desc:{zh:'酥脆洋蔥圈',en:'Crispy onion rings'},price:'$160',tag:'★'},
+  {cat:{zh:'炸物',en:'Fried'},name:{zh:'美式雞柳條',en:'Chicken Strips'},desc:{zh:'外酥雞柳條',en:'Crispy chicken strips'},price:'$160'},
+  {cat:{zh:'炸物',en:'Fried'},name:{zh:'揪福雞翅',en:'Joyful Chicken Wings'},desc:{zh:'2支$90 / 5支$200',en:'2 pcs $90 / 5 pcs $200'},price:'$90 / $200',tag:'★'},
+  {cat:{zh:'炸物',en:'Fried'},name:{zh:'任性三拼盤',en:'Trio Platter'},desc:{zh:'肉醬薯條、洋蔥圈、雞塊',en:'Meat sauce fries, onion rings, nuggets'},price:'$280'},
+  {cat:{zh:'湯品',en:'Soup'},name:{zh:'玉米濃湯',en:'Corn Chowder'},desc:{zh:'香濃玉米濃湯',en:'Creamy corn chowder'},price:'$70'},
+  // Drinks
+  {cat:{zh:'飲品',en:'Drinks'},name:{zh:'紅茶',en:'Black Tea (I/H)'},desc:{zh:'冰/熱',en:'Iced or Hot'},price:'$60'},
+  {cat:{zh:'飲品',en:'Drinks'},name:{zh:'奶茶',en:'Milk Tea (I/H)'},desc:{zh:'冰/熱',en:'Iced or Hot'},price:'$60'},
+  {cat:{zh:'飲品',en:'Drinks'},name:{zh:'無糖綠茶',en:'Unsweetened Green Tea (I)'},desc:{zh:'冰飲',en:'Iced'},price:'$60'},
+  {cat:{zh:'飲品',en:'Drinks'},name:{zh:'可樂',en:'Cola'},desc:{zh:'罐裝',en:'Can'},price:'$80'},
+  {cat:{zh:'飲品',en:'Drinks'},name:{zh:'雪碧',en:'Sprite'},desc:{zh:'罐裝',en:'Can'},price:'$80'},
+  {cat:{zh:'飲品',en:'Drinks'},name:{zh:'蘋果汁',en:'Apple Juice'},desc:{zh:'',en:''},price:'$80'},
+  {cat:{zh:'飲品',en:'Drinks'},name:{zh:'可爾必思',en:'Calpis'},desc:{zh:'',en:''},price:'$80'},
+  {cat:{zh:'飲品',en:'Drinks'},name:{zh:'可可亞',en:'Cocoa (I/H)'},desc:{zh:'冰/熱',en:'Iced or Hot'},price:'$80'},
+  {cat:{zh:'飲品',en:'Drinks'},name:{zh:'玉米鬚茶',en:'Corn Silk Tea (H)'},desc:{zh:'熱飲',en:'Hot'},price:'$80'},
+  {cat:{zh:'咖啡',en:'Coffee'},name:{zh:'美式咖啡',en:'Americano (I/H)'},desc:{zh:'冰/熱',en:'Iced or Hot'},price:'$100',tag:'★'},
+  {cat:{zh:'咖啡',en:'Coffee'},name:{zh:'拿鐵',en:'Latte (I/H)'},desc:{zh:'冰/熱',en:'Iced or Hot'},price:'$120'},
+  {cat:{zh:'咖啡',en:'Coffee'},name:{zh:'卡布奇諾',en:'Cappuccino (H)'},desc:{zh:'熱',en:'Hot'},price:'$120'},
+  {cat:{zh:'康普茶',en:'Kombucha'},name:{zh:'接骨木蘋果康普茶',en:'Elderflower Apple Kombucha'},desc:{zh:'有機釀造',en:'Organically brewed'},price:'$160',tag:'★'},
+  {cat:{zh:'康普茶',en:'Kombucha'},name:{zh:'有機高山葡萄康普茶',en:'Organic Alpine Grape Kombucha'},desc:{zh:'有機釀造',en:'Organically brewed'},price:'$160'},
+  {cat:{zh:'康普茶',en:'Kombucha'},name:{zh:'白毫茉莉康普茶',en:'White Tea Jasmine Kombucha'},desc:{zh:'有機釀造',en:'Organically brewed'},price:'$160',tag:'★'},
+  {cat:{zh:'康普茶',en:'Kombucha'},name:{zh:'鐵觀音康普茶',en:'Tieguanyin Kombucha'},desc:{zh:'有機釀造',en:'Organically brewed'},price:'$160'},
+  {cat:{zh:'精釀啤酒',en:'Craft Beer'},name:{zh:'吐司去邊大冰紅啤酒',en:'Red Ale'},desc:{zh:'手工精釀',en:'Craft brewed'},price:'$180'},
+  {cat:{zh:'精釀啤酒',en:'Craft Beer'},name:{zh:'芭樂鹽小麥啤酒',en:'Guava Salt Wheat Beer'},desc:{zh:'手工精釀',en:'Craft brewed'},price:'$180'},
+  {cat:{zh:'精釀啤酒',en:'Craft Beer'},name:{zh:'浪花朵朵啤酒',en:'Foam Waves Beer'},desc:{zh:'手工精釀',en:'Craft brewed'},price:'$180',tag:'★'},
+  {cat:{zh:'精釀啤酒',en:'Craft Beer'},name:{zh:'極夏365啤酒',en:'Summer 365 Beer'},desc:{zh:'手工精釀',en:'Craft brewed'},price:'$180'},
+  {cat:{zh:'精釀啤酒',en:'Craft Beer'},name:{zh:'撥雲見日萊姆仙島',en:'Lime Island Sour Beer'},desc:{zh:'萊姆酸啤',en:'Lime sour craft beer'},price:'$200',tag:'★'},
 ];
 
 let lang = 'zh', page = 'home', selectedTable = 0;
@@ -220,17 +289,19 @@ function renderHome() {
 
 function renderMenu() {
   const d = T[lang].menu;
+  const policy = {zh:'🐾 寵物友善 · 每人低消 $200 · 用餐90分鐘 · 自取餐具 · 不收服務費',en:'🐾 Pet-friendly · Min. $200/person · 90-min limit · Self-serve utensils · No service charge',ja:'🐾 ペット可 · 最低注文 $200/人 · 90分制 · セルフサービス · サービス料なし',ko:'🐾 반려동물 환영 · 1인 최소 $200 · 90분 제한 · 셀프서비스 · 서비스료 없음'}[lang];
   return `${navbar()}${geo()}<div class="page-body">
     <div class="sec-head"><h2>${d.h}</h2><p>${d.p}</p></div>
     <div class="sec-faq"><div class="fq">${d.fq}</div><div class="fa">${d.fa}</div></div>
     <div class="menu-grid">
-      ${MENU.map(item=>`<div class="menu-card">
-        <div class="mc-cat">${m(item.cat)}</div>
+      ${MENU.map(item=>`<div class="menu-card${item.tag?.includes('★')?' mc-rec':''}">
+        <div class="mc-top"><div class="mc-cat">${m(item.cat)}</div>${item.tag?`<div class="mc-badge">${item.tag}</div>`:''}</div>
         <div class="mc-name">${m(item.name)}</div>
         <div class="mc-desc">${m(item.desc)}</div>
         <div class="mc-price">${item.price}</div>
       </div>`).join('')}
     </div>
+    <div class="menu-policy">${policy}</div>
   </div>`;
 }
 

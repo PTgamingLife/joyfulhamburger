@@ -117,10 +117,15 @@ nav {
 .menu-card:nth-child(4n+3)::before { background: var(--green); }
 .menu-card:nth-child(4n+4)::before { background: var(--orange); }
 .menu-card:hover { border-color: var(--pink); box-shadow: 4px 4px 0 var(--pink); }
-.mc-cat { font-size: 0.65rem; letter-spacing: 3px; color: var(--gray); margin-bottom: 0.4rem; text-transform: uppercase; }
-.mc-name { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.4rem; }
+.mc-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+.mc-cat { font-size: 0.65rem; letter-spacing: 3px; color: var(--gray); text-transform: uppercase; }
+.mc-badge { font-size: 0.8rem; font-weight: 900; line-height: 1; }
+.mc-rec { border-color: #ffd0e4; }
+.mc-rec::before { background: var(--pink) !important; }
+.mc-name { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.4rem; }
 .mc-desc { font-size: 0.82rem; color: var(--gray); margin-bottom: 0.9rem; line-height: 1.5; }
 .mc-price { font-size: 1.2rem; font-weight: 900; color: var(--pink); }
+.menu-policy { text-align: center; font-size: 0.8rem; color: var(--gray); padding: 1.5rem 1.5rem 2rem; letter-spacing: 0.5px; }
 
 /* ── RESERVE ── */
 .reserve-wrap { max-width: 580px; margin: 0 auto; padding: 0 1.5rem 3rem; }
