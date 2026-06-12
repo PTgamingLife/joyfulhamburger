@@ -179,11 +179,30 @@ nav {
 .b-pink { background: var(--pink); color: white; }
 .b-cyan { background: var(--cyan); color: var(--dark); }
 .b-green { background: var(--green); color: var(--dark); }
-.map-ph {
-  background: var(--off); border: 2px dashed #ccc; height: 180px;
+.map-dot {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: var(--pink); border: none; cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  margin-top: 0.8rem; color: var(--gray); font-size: 0.85rem; cursor: pointer;
+  margin: 1rem auto 0; position: relative;
+  box-shadow: 0 4px 18px rgba(255,0,110,0.45);
+  transition: transform 0.15s, box-shadow 0.15s;
 }
+.map-dot:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(255,0,110,0.6); }
+.map-dot-ring {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 4px solid white; display: block;
+}
+.map-dot-ring::after {
+  content: ''; display: block; width: 12px; height: 12px;
+  border-radius: 50%; background: white;
+  margin: 8px auto 0;
+}
+.map-dot-label {
+  text-align: center; font-size: 0.78rem; font-weight: 700;
+  letter-spacing: 1.5px; color: var(--pink); margin-top: 0.6rem;
+  cursor: pointer; text-transform: uppercase;
+}
+.map-dot-label:hover { text-decoration: underline; }
 .hours { display: grid; grid-template-columns: auto 1fr; gap: 0.4rem 1.2rem; margin-top: 0.8rem; font-size: 0.88rem; }
 .hd { font-weight: 700; }
 .ht { color: var(--gray); }

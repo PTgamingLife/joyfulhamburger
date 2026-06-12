@@ -266,7 +266,6 @@ function navbar() {
       <a class="${page==='reserve'?'active':''}" onclick="go('reserve')">${n.reserve}</a>
       <a class="${page==='transport'?'active':''}" onclick="go('transport')">${n.transport}</a>
       <a class="${page==='wall'?'active':''}" onclick="go('wall')">${n.wall}</a>
-      <a class="${page==='seating'?'active':''}" onclick="go('seating')">${n.seating}</a>
       <span class="nav-globe" onclick="go('home')" title="Language">🌐</span>
     </div>
   </nav>`;
@@ -358,7 +357,8 @@ function renderTransport() {
     <div class="transport-wrap">
       <div class="tc"><span class="tc-icon">📍</span><h3>${tr.addr}</h3>
         <p>${tr.addrT}</p>
-        <div class="map-ph" onclick="window.open('${MAPS_URL}','_blank')">🗺 ${tr.map}</div>
+        <button class="map-dot" onclick="window.open('${MAPS_URL}','_blank')" aria-label="${tr.map}"><span class="map-dot-ring"></span></button>
+        <p class="map-dot-label" onclick="window.open('${MAPS_URL}','_blank')">${tr.map}</p>
       </div>
       <div class="tc"><span class="tc-icon">🚇</span><h3>${tr.mrt}</h3><p>${tr.mrtT}</p></div>
       <div class="tc"><span class="tc-icon">🚌</span><h3>${tr.bus}</h3><p>${tr.busT}</p></div>
@@ -559,7 +559,7 @@ function selectTable(id){selectedTable=id;render();}
 
 function render() {
   const app = document.getElementById('app');
-  const pages = { home:renderHome, menu:renderMenu, reserve:renderReserve, transport:renderTransport, wall:renderWall, seating:renderSeating };
+  const pages = { home:renderHome, menu:renderMenu, reserve:renderReserve, transport:renderTransport, wall:renderWall };
   app.innerHTML = pages[page]();
   window.scrollTo(0, 0);
 }
